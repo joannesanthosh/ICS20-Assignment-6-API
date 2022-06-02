@@ -19,10 +19,12 @@ if (navigator.serviceWorker) {
  */
 const getImage = async (URLAddress) => {
   try {
-    const request = await fetch(URLAddress);
-    document.getElementById("api-image").innerHTML = '<img src="https://random.imagecdn.app/500/500" alt="Random image" class="center" width="40%" ' + ">";
+    const request = await fetch(URLAddress)
+    document.getElementById("api-image").innerHTML =
+      '<img src="https://random.imagecdn.app/500/500" alt="Random image" class="center" width="40%" ' +
+      ">"
   } catch (err) {
-    console.log(err);
+    console.log(err)
   }
-};
-getImage("https://random.imagecdn.app/500/500");
+}
+getImage("https://random.imagecdn.app/500/500")
