@@ -1,5 +1,5 @@
 /* Created by: Joanne Santhosh
- * Created on: Apr 2022
+ * Created on: May 2022
  * This file contains the JS functions for index.html
  */
 
@@ -9,22 +9,20 @@
  * Check servie worker.
  */
 if (navigator.serviceWorker) {
-  navigator.serviceWorker.register("/ICS20-Unit6-01-PWA/sw.js", {
-    scope: "/ICS20-Unit6-01-PWA/",
+  navigator.serviceWorker.register("/ICS20-Assignment-6-API/sw.js", {
+    scope: "/ICS20-Assignment-6-API/",
   })
 }
 
 /**
- * This function converts the degrees from fahrenheit to celsius
+ * Get API info.
  */
-function convert() {
-  // input
-  const fahrenheit = parseInt(document.getElementById("fahrenheit").value)
-
-  // process
-  const celsius = ((fahrenheit - 32) * 5) / 9
-
-  // output
-  document.getElementById("celsius").innerHTML =
-    "<p>The  temperature in celsius is: " + celsius.toFixed(2) + "°<p>"
-}
+const getImage = async (URLAddress) => {
+  try {
+    const request = await fetch(URLAddress);
+    document.getElementById("api-image").innerHTML = '<img src="https://random.imagecdn.app/500/500" alt="Random image" class="center" width="40%" ' + ">";
+  } catch (err) {
+    console.log(err);
+  }
+};
+getImage("https://random.imagecdn.app/500/500");
